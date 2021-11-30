@@ -1,2 +1,2 @@
-# woomy2io
+# trinaryarras
 A sequel of Woomy.io
