@@ -75,7 +75,7 @@ const g = { // Gun info here
             sidewind:   [1.5,   2,     1,      1,      1.5,    0.9,    1,      0.15,   0.5,    1,      1,      1,      1],  
             snakeskin:  [0.6,   1,     2,      1,      0.5,    0.5,    1,      1,      0.2,    0.4,    1,      5,      1],
     mach:               [0.5,   0.8,   1.7,    1,      0.7,    0.7,    1,      1,      0.8,    1,      1,      2.5,    1],
-        blaster:        [1,     1.2,   1.25,   1.1,    1.5,    1,      0.6,    0.8,    0.33,   0.6,    0.5,    1.5,    0.8], 
+        blast:          [1,     1.2,   1.25,   1.1,    1.5,    1,      0.6,    0.8,    0.33,   0.6,    0.5,    1.5,    0.8], 
         chain:          [1.25,  1.33,  0.8,    1,      0.8,    1,      1.1,    1.25,   1.25,   1.1,    1.25,   0.5,    1.1], 
         mini:           [1.25,  0.6,   1,      0.8,    0.55,   0.45,   1.25,   1.33,   1,      1,      1.25,   0.5,    1.1], 
             stream:     [1.1,   0.6,   1,      1,      1,      0.65,   1,      1.24,   1,      1,      1,      1,      1],    
@@ -706,9 +706,9 @@ exports.missile = {
                 }, },
         ],
     };
-    exports.snake = {
+    exports.rocket = {
         PARENT: [exports.bullet],
-        LABEL: 'Snake',
+        LABEL: 'Rocket',
         INDEPENDENT: true,
         BODY: {
             RANGE: 120,
@@ -720,16 +720,6 @@ exports.missile = {
                     STAT_CALCULATOR: gunCalcNames.thruster,
                     SHOOT_SETTINGS: combineStats([
                         g.basic, g.sniper, g.hunter, g.hunter2, g.snake, g.snakeskin,
-                    ]),
-                    TYPE: [exports.bullet, { PERSISTS_AFTER_DEATH: true, }],
-                }, }, {
-            POSITION: [  10,    12,     0.8,     8,      0,     180,   0.5,  ], 
-                PROPERTIES: {
-                    AUTOFIRE: true,
-                    NEGATIVE_RECOIL: true,
-                    STAT_CALCULATOR: gunCalcNames.thruster,
-                    SHOOT_SETTINGS: combineStats([
-                        g.basic, g.sniper, g.hunter, g.hunter2, g.snake,
                     ]),
                     TYPE: [exports.bullet, { PERSISTS_AFTER_DEATH: true, }],
                 }, },
@@ -2031,9 +2021,9 @@ exports.basic = {
                 ],
             };
             exports.poach = makeHybrid(exports.hunter, 'Poacher');
-            exports.sidewind = {
+            exports.rocketeer = {
                 PARENT: [exports.genericTank],
-                LABEL: 'Sidewinder',
+                LABEL: 'Rocketeer',
                 DANGER: 7,
                 BODY: {
                     ACCELERATION: base.ACCEL * 0.7,
@@ -2046,7 +2036,7 @@ exports.basic = {
                     POSITION: [  21,    12,    -1.1,     0,      0,      0,      0,  ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.sniper, g.hunter, g.sidewind]),
-                            TYPE: exports.snake,
+                            TYPE: exports.rocket,
                             STAT_CALCULATOR: gunCalcNames.sustained,
                         }, },
                 ],
@@ -3142,74 +3132,74 @@ exports.basic = {
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [ 14.5,    4,      1,      0,    -1.0,    -60,    4/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [  16,     4,      1,      0,    -1.6,    -45,    3/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [ 17.5,    4,      1,      0,    -2.4,    -30,    2/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [  19,     4,      1,      0,    -3.0,    -15,    1/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {                    
                     POSITION: [  13,     4,      1,      0,     0.8,     75,    5/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [ 14.5,    4,      1,      0,     1.0,     60,    4/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [  16,     4,      1,      0,     1.6,     45,    3/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [ 17.5,    4,      1,      0,     2.4,     30,    2/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [  19,     4,      1,      0,     3.0,     15,    1/6,    ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.gunner, g.arty, g.twin, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Spread',
+                            LABEL: 'Primary',
                         }, }, {
                     POSITION: [  13,    10,     1.3,     8,      0,      0,      0,     ], 
                         PROPERTIES: {
                             SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.spreadmain, g.spread]),
                             TYPE: exports.bullet,
-                            LABEL: 'Pounder',
+                            LABEL: 'Secondary',
                         }, },
                 ],
             };
 
     exports.flank = {
         PARENT: [exports.genericTank],
-        LABEL: 'Flank Guard',
+        LABEL: 'Flank',
         BODY: {
             SPEED: base.SPEED * 1.1,
         },
@@ -3233,7 +3223,7 @@ exports.basic = {
     };
         exports.hexa = {
             PARENT: [exports.genericTank],
-            LABEL: 'Hexa Tank',
+            LABEL: 'Hexa',
             DANGER: 6,
             GUNS: [ { /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
                 POSITION: [  18,     8,      1,      0,      0,      0,      0,   ], 
@@ -3270,7 +3260,7 @@ exports.basic = {
         };
             exports.octo = {
                 PARENT: [exports.genericTank],
-                LABEL: 'Octo Tank',
+                LABEL: 'Octo',
                 DANGER: 7,
                 GUNS: [ { /*** LENGTH  WIDTH   ASPECT    X       Y     ANGLE   DELAY */
                     POSITION: [  18,     8,      1,      0,      0,      0,      0,   ], 
@@ -3379,7 +3369,7 @@ exports.basic = {
                     ],
                 };
             })();
-            exports.hexatrap = makeAuto({
+            exports.hexatrap = {
                 PARENT: [exports.genericTank],
                 LABEL: 'Hexa-Trapper',
                 DANGER: 7,
@@ -3432,14 +3422,12 @@ exports.basic = {
                             TYPE: exports.trap, STAT_CALCULATOR: gunCalcNames.trap,
                         }, },
                 ],
-            }, 'Hexa-Trapper');
+            };
 
         exports.tri = {
             PARENT: [exports.genericTank],
             LABEL: 'Tri-Angle',
             BODY: {
-                HEALTH: base.HEALTH * 0.8,
-                SHIELD: base.SHIELD * 0.8,
                 DENSITY: base.DENSITY * 0.6,
             },
             DANGER: 6,
@@ -3468,8 +3456,6 @@ exports.basic = {
                 PARENT: [exports.genericTank],
                 LABEL: 'Booster',
                 BODY: {
-                    HEALTH: base.HEALTH * 0.6,
-                    SHIELD: base.SHIELD * 0.6,
                     DENSITY: base.DENSITY * 0.2,
                 },
                 DANGER: 7,
@@ -3546,9 +3532,9 @@ exports.basic = {
                         }, },
                 ],
             };
-            exports.brutalizer = {
+            exports.surfer = {
                 PARENT: [exports.genericTank],
-                LABEL: '',
+                LABEL: 'Surfer',
                 BODY: {
                     DENSITY: base.DENSITY * 0.6,
                 },
@@ -3860,81 +3846,6 @@ exports.basic = {
                         }, },
                 ],
             };
-
-// UPGRADE PATHS
-exports.testbed.UPGRADES_TIER_1 = [
-    exports.autocruiser, 
-    exports.master, 
-    exports.dual, 
-    exports.hiveshooter, 
-    exports.brutalizer,
-    exports.shotgun2,
-    exports.hybridmini
-];
-
-exports.basic.UPGRADES_TIER_1 = [exports.twin, exports.sniper, exports.machine, exports.flank, exports.director];
-        exports.basic.UPGRADES_TIER_3 = [exports.single];
-
-    exports.basic.UPGRADES_TIER_2 = [exports.smash];
-        exports.smash.UPGRADES_TIER_3 = [exports.megasmash, exports.spike, exports.autosmash];
-
-    exports.twin.UPGRADES_TIER_2 = [exports.double, exports.bent, exports.gunner, exports.hexa];
-        exports.twin.UPGRADES_TIER_3 = [exports.triple];
-        exports.double.UPGRADES_TIER_3 = [exports.tripletwin, exports.split, exports.autodouble, exports.bentdouble];
-        exports.bent.UPGRADES_TIER_3 = [exports.penta, exports.spread, exports.benthybrid, exports.bentdouble, exports.triple];
-        exports.gunner.UPGRADES_TIER_3 = [exports.autogunner, exports.nailgun, exports.auto4,exports.machinegunner];
-
-    exports.sniper.UPGRADES_TIER_2 = [exports.assassin, exports.hunter, exports.mini, exports.builder];
-        exports.sniper.UPGRADES_TIER_3 = [exports.bushwhack];
-        exports.assassin.UPGRADES_TIER_3 = [exports.ranger, exports.falcon];
-        exports.hunter.UPGRADES_TIER_3 = [exports.preda, exports.poach, exports.sidewind];
-        exports.builder.UPGRADES_TIER_3 = [exports.construct, exports.autobuilder, exports.engineer, exports.boomer];
-
-    exports.machine.UPGRADES_TIER_2 = [exports.destroy, exports.artillery, exports.mini, exports.gunner];
-        exports.machine.UPGRADES_TIER_3 = [exports.spray];
-        exports.destroy.UPGRADES_TIER_3 = [exports.anni, exports.hybrid, exports.construct, exports.shotgun2];
-        exports.artillery.UPGRADES_TIER_3 = [exports.mortar, exports.spread, exports.skimmer];
-        exports.mini.UPGRADES_TIER_3 = [exports.stream, exports.nailgun];
-
-    exports.flank.UPGRADES_TIER_2 = [exports.hexa, exports.tri, exports.auto3, exports.flanktrap];
-        exports.flank.UPGRADES_TIER_3 = [];
-        exports.tri.UPGRADES_TIER_3 = [exports.fighter, exports.booster, exports.falcon, exports.bomber, exports.autotri];
-        exports.hexa.UPGRADES_TIER_3 = [exports.octo, exports.hexatrap];
-        exports.auto3.UPGRADES_TIER_3 = [exports.auto5, exports.heavy3, exports.auto4];
-        exports.flanktrap.UPGRADES_TIER_3 = [exports.bushwhack, exports.guntrap, exports.fortress, exports.bomber];
-
-    exports.director.UPGRADES_TIER_2 = [exports.overseer, exports.cruiser, exports.underseer];
-        exports.director.UPGRADES_TIER_3 = [exports.factory];
-        exports.overseer.UPGRADES_TIER_3 = [exports.overlord, exports.overtrap, exports.overgunner];  
-        exports.underseer.UPGRADES_TIER_3 = [exports.necromancer];
-        exports.cruiser.UPGRADES_TIER_3 = [exports.carrier, exports.battleship, exports.fortress];
-
-
-    /*exports.smash.UPGRADES_TIER_3 = [exports.megasmash, exports.spike, exports.autosmash];
-            
-    exports.twin.UPGRADES_TIER_2 = [exports.double, exports.bent, exports.triple, exports.hexa];
-        exports.double.UPGRADES_TIER_3 = [exports.tripletwin, exports.autodouble];
-        exports.bent.UPGRADES_TIER_3 = [exports.penta, exports.benthybrid];
-        exports.triple.UPGRADES_TIER_3 = [exports.quint];
-
-    exports.sniper.UPGRADES_TIER_2 = [exports.assassin, exports.overseer, exports.hunter, exports.builder];
-        exports.assassin.UPGRADES_TIER_3 = [exports.ranger];
-        exports.overseer.UPGRADES_TIER_3 = [exports.overlord, exports.battleship
-            , exports.overtrap, exports.necromancer, exports.factory, exports.fortress];
-        exports.hunter.UPGRADES_TIER_3 = [exports.preda, exports.poach];
-        exports.builder.UPGRADES_TIER_3 = [exports.construct, exports.autobuilder];
-        
-    exports.machine.UPGRADES_TIER_2 = [exports.destroy, exports.gunner, exports.artillery];
-        exports.destroy.UPGRADES_TIER_3 = [exports.anni, exports.hybrid];
-        exports.gunner.UPGRADES_TIER_3 = [exports.autogunner, exports.mortar, exports.stream];
-        exports.artillery.UPGRADES_TIER_3 = [exports.mortar, exports.spread, exports.skimmer];
-        exports.machine.UPGRADES_TIER_3 = [exports.spray];
-
-    exports.flank.UPGRADES_TIER_2 = [exports.hexa, exports.tri, exports.auto3, exports.flanktrap];
-        exports.hexa.UPGRADES_TIER_3 = [exports.octo];
-        exports.tri.UPGRADES_TIER_3 = [exports.booster, exports.fighter, exports.bomber, exports.autotri];
-        exports.auto3.UPGRADES_TIER_3 = [exports.auto5, exports.heavy3];
-        exports.flanktrap.UPGRADES_TIER_3 = [exports.guntrap, exports.fortress, exports.bomber];*/
 
 // NPCS:
 exports.crasher = {
@@ -4260,4 +4171,50 @@ exports.bot = {
     AI: { STRAFE: true, },
 };
 
-exports.testbed.UPGRADES_TIER_1.push(exports.elite_sprayer);
+// UPGRADE PATHS
+exports.testbed.UPGRADES_TIER_1 = [
+    exports.autocruiser, 
+    exports.master, 
+    exports.dual, 
+    exports.hiveshooter, 
+    exports.surfer,
+    exports.shotgun2,
+    exports.hybridmini,
+    exports.elite_sprayer
+];
+
+exports.basic.UPGRADES_TIER_1 = [exports.twin, exports.sniper, exports.machine, exports.flank, exports.director];
+        exports.basic.UPGRADES_TIER_3 = [exports.single];
+
+    exports.basic.UPGRADES_TIER_2 = [exports.smash];
+        exports.smash.UPGRADES_TIER_3 = [exports.megasmash, exports.spike, exports.autosmash];
+
+    exports.twin.UPGRADES_TIER_2 = [exports.double, exports.bent, exports.gunner, exports.hexa];
+        exports.twin.UPGRADES_TIER_3 = [exports.triple];
+        exports.double.UPGRADES_TIER_3 = [exports.tripletwin, exports.split, exports.autodouble, exports.bentdouble];
+        exports.bent.UPGRADES_TIER_3 = [exports.penta, exports.spread, exports.benthybrid, exports.bentdouble, exports.triple];
+        exports.gunner.UPGRADES_TIER_3 = [exports.autogunner, exports.nailgun, exports.auto4,exports.machinegunner];
+
+    exports.sniper.UPGRADES_TIER_2 = [exports.assassin, exports.hunter, exports.mini, exports.builder];
+        exports.sniper.UPGRADES_TIER_3 = [exports.bushwhack];
+        exports.assassin.UPGRADES_TIER_3 = [exports.ranger, exports.falcon];
+        exports.hunter.UPGRADES_TIER_3 = [exports.preda, exports.poach, exports.rocketeer];
+        exports.builder.UPGRADES_TIER_3 = [exports.construct, exports.autobuilder, exports.engineer, exports.boomer];
+
+    exports.machine.UPGRADES_TIER_2 = [exports.destroy, exports.artillery, exports.spray, exports.mini, exports.gunner];
+        exports.destroy.UPGRADES_TIER_3 = [exports.anni, exports.hybrid, exports.construct, exports.shotgun2];
+        exports.artillery.UPGRADES_TIER_3 = [exports.mortar, exports.spread, exports.skimmer];
+        exports.mini.UPGRADES_TIER_3 = [exports.stream, exports.nailgun];
+
+    exports.flank.UPGRADES_TIER_2 = [exports.hexa, exports.tri, exports.auto3, exports.flanktrap];
+        exports.flank.UPGRADES_TIER_3 = [];
+        exports.tri.UPGRADES_TIER_3 = [exports.fighter, exports.booster, exports.falcon, exports.bomber, exports.autotri];
+        exports.hexa.UPGRADES_TIER_3 = [exports.octo, exports.hexatrap];
+        exports.auto3.UPGRADES_TIER_3 = [exports.auto5, exports.heavy3, exports.auto4];
+        exports.flanktrap.UPGRADES_TIER_3 = [exports.bushwhack, exports.guntrap, exports.fortress, exports.bomber];
+
+    exports.director.UPGRADES_TIER_2 = [exports.overseer, exports.cruiser, exports.underseer];
+        exports.director.UPGRADES_TIER_3 = [exports.factory];
+        exports.overseer.UPGRADES_TIER_3 = [exports.overlord, exports.overtrap, exports.overgunner];  
+        exports.underseer.UPGRADES_TIER_3 = [exports.necromancer];
+        exports.cruiser.UPGRADES_TIER_3 = [exports.carrier, exports.battleship, exports.fortress];
